@@ -1,0 +1,26 @@
+<configuration>
+
+    <!-- 1. Налаштування для виведення в КОНСОЛЬ -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 2. Налаштування для запису у ФАЙЛ -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <!-- Назва файлу, куди будуть зберігатися логи -->
+        <file>application.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Активація обох аппендерів -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root>
+
+</configuration>
